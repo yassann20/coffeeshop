@@ -13,19 +13,15 @@ const topslider = new Swiper('.top', {
     },
     breakpoints: {
 
-        640: {
-            slidesPerView: 2.5,
-            spaceBetween: 30, // ブレークポイントでスペースを調整
-        },
-        768: {
-            slidesPerView: 2.75,
+        0: {
+            slidesPerView: 1,
             spaceBetween: 40, // ブレークポイントでスペースを調整
         },
-        1080: {
-            slidesPerView: 3.25,
-            spaceBetween: 50, // ブレークポイントでスペースを調整
+        768: {
+            slidesPerView: 1,
+            spaceBetween: 60, // ブレークポイントでスペースを調整
         },
-        1280: {
+        1240: {
             slidesPerView: 3,
             spaceBetween: 450, // ブレークポイントでスペースを調整
         },
@@ -45,6 +41,20 @@ const foodmenu = new Swiper('.foodmenu', {
     autoplay: {
         delay: 3000,
     },
+    breakpoints: {
+
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 40, // ブレークポイントでスペースを調整
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 70,
+        },
+        1240: {
+            slidesPerView: 4,
+        },
+    },
     
 });
 const drinkmenu = new Swiper('.drinkmenu', {
@@ -55,6 +65,20 @@ const drinkmenu = new Swiper('.drinkmenu', {
     spaceBetween: 50,
     autoplay: {
         delay: 3000,
+    },
+    breakpoints: {
+
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 40, // ブレークポイントでスペースを調整
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 70,
+        },
+        1240: {
+            slidesPerView: 4,
+        },
     },
     
 });
