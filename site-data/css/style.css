@@ -3,17 +3,129 @@ body {
   padding: 0;
   margin: 0;
   /*============================
+  #menu-bar pc、tabでは非表示
+  ============================*/
+  /*============================
   #header-menu
   ============================*/
 }
-body a {
-  text-decoration: none;
+@media screen and (min-width: 1240px) {
+  body a {
+    text-decoration: none;
+  }
+  body h2 {
+    font-size: 40px;
+  }
+  body h3 {
+    font-size: 30px;
+  }
+  body h2.center-border {
+    position: relative;
+    left: 50%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto 20px;
+    padding: 0 10px 0;
+    transform: translateX(-50%);
+  }
+  body h2.center-border::before {
+    position: absolute;
+    top: calc(50% - 2px);
+    left: -150px;
+    content: "";
+    width: 150px;
+    height: 2px;
+    background-color: #000;
+  }
+  body h2.center-border::after {
+    position: absolute;
+    top: calc(50% - 2px);
+    right: -150px;
+    content: "";
+    width: 150px;
+    height: 2px;
+    background-color: #000;
+  }
 }
-body h2 {
-  font-size: 40px;
+@media screen and (min-width: 768px) and (max-width: 1239px) {
+  body a {
+    text-decoration: none;
+  }
+  body h2 {
+    font-size: 30px;
+  }
+  body h3 {
+    font-size: 20px;
+  }
+  body h2.center-border {
+    position: relative;
+    left: 50%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto 20px;
+    padding: 0 10px;
+    transform: translateX(-50%);
+  }
+  body h2.center-border::before {
+    position: absolute;
+    top: calc(50% - 2px);
+    left: -100px;
+    content: "";
+    width: 100px;
+    height: 2px;
+    background-color: #000;
+  }
+  body h2.center-border::after {
+    position: absolute;
+    top: calc(50% - 2px);
+    right: -100px;
+    content: "";
+    width: 100px;
+    height: 2px;
+    background-color: #000;
+  }
 }
-body h3 {
-  font-size: 30px;
+@media screen and (min-width: 0) and (max-width: 767px) {
+  body a {
+    text-decoration: none;
+  }
+  body h2 {
+    font-size: 20px;
+  }
+  body h3 {
+    font-size: 18px;
+  }
+  body p {
+    font-size: 16px;
+  }
+  body h2.center-border {
+    position: relative;
+    left: 50%;
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    padding: 0 10px 0;
+    margin-bottom: 20px;
+    transform: translateX(-50%);
+  }
+  body h2.center-border::before {
+    position: absolute;
+    top: calc(50% - 2px);
+    left: -50px;
+    content: "";
+    width: 50px;
+    height: 2px;
+    background-color: #000;
+  }
+  body h2.center-border::after {
+    position: absolute;
+    top: calc(50% - 2px);
+    right: -50px;
+    content: "";
+    width: 50px;
+    height: 2px;
+    background-color: #000;
+  }
 }
 body header {
   width: 100%;
@@ -22,7 +134,7 @@ body header {
 }
 @media screen and (min-width: 1240px) {
   body header {
-    aspect-ratio: 1280/700;
+    height: 100vh;
     background-image: url("../photos/pc/top-back-pc.jpg");
   }
 }
@@ -165,32 +277,160 @@ body header {
     display: none;
   }
 }
-body div#header-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+@media screen and (min-width: 1240px) {
+  body div#menubar {
+    display: none;
+  }
 }
-body div#header-menu nav {
-  width: 100%;
+@media screen and (min-width: 768px) and (max-width: 1239px) {
+  body div#menubar {
+    display: none;
+  }
 }
-body div#header-menu nav ul {
-  width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  padding: 35px 70px;
+@media screen and (min-width: 0) and (max-width: 767px) {
+  body div#menubar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 55px;
+    z-index: 101;
+  }
+  body div#menubar span {
+    position: absolute;
+    left: 10px;
+    width: 40px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  body div#menubar span:nth-of-type(1) {
+    top: 15px;
+  }
+  body div#menubar span:nth-of-type(2) {
+    top: 25px;
+  }
+  body div#menubar span:nth-of-type(3) {
+    top: 35px;
+  }
+  body div#menubar span:nth-of-type(1).active {
+    top: 25px;
+    transform: rotate(45deg);
+    background-color: #000;
+  }
+  body div#menubar span:nth-of-type(2).active {
+    display: none;
+  }
+  body div#menubar span:nth-of-type(3).active {
+    top: 25px;
+    transform: rotate(-45deg);
+    background-color: #000;
+  }
 }
-body div#header-menu nav ul li {
-  list-style: none;
-  padding: 0 20px;
+body .color {
+  background-color: black !important;
 }
-body div#header-menu nav ul li a {
-  color: white;
+@media screen and (min-width: 1240px) {
+  body div#header-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  body div#header-menu nav {
+    width: 100%;
+  }
+  body div#header-menu nav ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    padding: 35px 70px;
+  }
+  body div#header-menu nav ul li {
+    list-style: none;
+    padding: 0 20px;
+  }
+  body div#header-menu nav ul li a {
+    color: white;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1239px) {
+  body div#header-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  body div#header-menu nav {
+    width: 100%;
+  }
+  body div#header-menu nav ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    padding: 35px 70px;
+  }
+  body div#header-menu nav ul li {
+    list-style: none;
+    padding: 0 20px;
+  }
+  body div#header-menu nav ul li a {
+    color: white;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 767px) {
+  body div#header-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    transform: translateY(-100vh);
+    transition: all 0.3s;
+  }
+  body div#header-menu.active-menu {
+    transform: translateY(0) !important;
+  }
+  body div#header-menu nav {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+  }
+  body div#header-menu nav ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: center;
+    padding: 35px 0;
+  }
+  body div#header-menu nav ul li {
+    width: 100%;
+    list-style: none;
+    padding: 10px 0;
+    text-align: center;
+  }
+  body div#header-menu nav ul li a {
+    color: #000;
+  }
 }
 body main {
   /*============================
+  #blog-content
+  ============================*/
+  /*============================
+  #archive-content
+  ============================*/
+  /*============================
   #menu
+  ============================*/
+  /*============================
+  #topic
   ============================*/
   /*============================
   #news
@@ -203,51 +443,165 @@ body main {
   ============================*/
 }
 @media screen and (min-width: 1240px) {
-  body main {
+  body main div.blog-content {
+    width: 100%;
+    background-image: url("../photos/pc/menu-back.png");
+    padding: 20px calc((100% - 850px) / 2) 40px;
+  }
+  body main div.blog-content div.blog-header {
+    width: 100%;
+    padding: 20px 0;
+  }
+  body main div.blog-content div.blog-inner img {
+    display: block;
+    width: 100%;
+    height: 477px;
+    background-color: #fff;
+    margin: 10px 0;
+  }
+  body main div.blog-content div.blog-inner h2 {
+    padding: 10px 0;
+    text-align: center;
+  }
+  body main div.blog-content div.blog-inner p {
+    padding: 10px 0;
+  }
+  body main div.blog-content div.blog-inner h3 {
+    padding: 10px 0;
+    text-align: center;
+  }
+  body main div.blog-content div.blog-inner h4 {
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1239px) {
+  body main div.blog-content {
+    width: 100%;
+    background-image: url("../photos/pc/menu-back.png");
+    padding: 20px calc((100% - 700px) / 2) 40px;
+  }
+  body main div.blog-content div.blog-header {
+    width: 100%;
+    padding: 20px 0;
+  }
+  body main div.blog-content div.blog-inner img {
+    display: block;
+    width: 100%;
+    height: 477px;
+    background-color: #fff;
+    margin: 10px 0;
+  }
+  body main div.blog-content div.blog-inner h2 {
+    padding: 10px 0;
+    text-align: center;
+  }
+  body main div.blog-content div.blog-inner p {
+    padding: 10px 0;
+  }
+  body main div.blog-content div.blog-inner h3 {
+    padding: 10px 0;
+    text-align: center;
+  }
+  body main div.blog-content div.blog-inner h4 {
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 767px) {
+  body main div.blog-content {
+    width: 100%;
+    background-image: url("../photos/pc/menu-back.png");
+    padding: 20px calc((100% - 300px) / 2) 40px;
+  }
+  body main div.blog-content div.blog-header {
+    width: 100%;
+    padding: 20px 0;
+  }
+  body main div.blog-content div.blog-inner img {
+    display: block;
+    width: 100%;
+    height: 477px;
+    background-color: #fff;
+    margin: 10px 0;
+  }
+  body main div.blog-content div.blog-inner h2 {
+    padding: 10px 0;
+    text-align: center;
+  }
+  body main div.blog-content div.blog-inner p {
+    padding: 10px 0;
+  }
+  body main div.blog-content div.blog-inner h3 {
+    padding: 10px 0;
+    text-align: center;
+  }
+  body main div.blog-content div.blog-inner h4 {
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1240px) {
+  body main div.archive-content {
+    width: 100%;
+    padding: 0 130px;
     /*============================
-    #topic
+    #archive-inner
     ============================*/
   }
+  body main div.archive-content div#archive-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  body main div.archive-content div#archive-inner article {
+    width: 300px;
+    margin: 20px;
+  }
+  body main div.archive-content div#archive-inner article a {
+    position: relative;
+    width: 100%;
+  }
+  body main div.archive-content div#archive-inner article a div.category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+  }
+  body main div.archive-content div#archive-inner article a div.category p {
+    padding: 5px;
+    background-color: #033304;
+  }
+  body main div.archive-content div#archive-inner article a img {
+    display: block;
+    width: 300px;
+    height: 170px;
+  }
+  body main div.archive-content div#archive-inner article a h3 {
+    font-size: 16px;
+    padding: 30px 30px 20px;
+  }
+  body main div.archive-content div#archive-inner article a time {
+    padding: 0 30px 30px;
+  }
+}
+@media screen and (min-width: 1240px) {
   body main div#menu {
     width: 100%;
     background-image: url("../photos/pc/menu-back.png");
     background-size: cover;
-    background-position: center;
+    background-position: top;
     margin-top: -10vh;
     padding: 60px 0 0;
   }
-  body main div#menu h2 {
-    position: relative;
-    width: 160px;
-    text-align: center;
-    margin: 0 auto 0;
-  }
-  body main div#menu h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
-  body main div#menu h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
   body main div#menu div.food-menu,
   body main div#menu div.drink-menu {
-    width: 650px;
+    width: 1000px;
     margin: 0 auto;
   }
   body main div#menu div.food-menu h3,
   body main div#menu div.drink-menu h3 {
-    width: 100px;
     display: inline-block;
     position: relative;
     margin: 40px 80px 20px;
@@ -307,108 +661,8 @@ body main {
     margin: 40px 0 20px;
     text-align: center;
   }
-  body main div#topic {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    background-image: url("../photos/pc/topic-back.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 60px calc((100% - 1000px) / 2) 60px;
-  }
-  body main div#topic .topic-h2 {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  body main div#topic .topic-h2 h2 {
-    position: relative;
-    width: 200px;
-    text-align: center;
-    margin: 0 auto 0;
-    color: #fff;
-  }
-  body main div#topic .topic-h2 h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: 200px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #fff;
-  }
-  body main div#topic .topic-h2 h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: 200px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #fff;
-  }
-  body main div#topic div.topic-container {
-    width: 360px;
-  }
-  body main div#topic div.topic-container div.swiper-container {
-    position: relative;
-    width: 360px;
-    padding: 0 50px 0 50px;
-    overflow: hidden;
-  }
-  body main div#topic div.topic-container div.swiper-container div.swiper-wrapper {
-    width: 280px;
-    margin: 0 auto;
-  }
-  body main div#topic div.topic-container div.swiper-container div.swiper-wrapper div.swiper-slide {
-    width: 100%;
-  }
-  body main div#topic div.topic-container div.swiper-container div.swiper-wrapper div.swiper-slide img {
-    display: block;
-    width: 100%;
-  }
-  body main div#topic div.topic-container div.swiper-container div.swiper-button-prev {
-    position: absolute;
-    left: 0;
-    --swiper-navigation-color: #fff;
-  }
-  body main div#topic div.topic-container div.swiper-container div.swiper-button-next {
-    position: absolute;
-    right: 0;
-    --swiper-navigation-color: #fff;
-  }
-  body main div#topic div.topic-text {
-    width: 280px;
-    margin-left: 50px;
-  }
-  body main div#topic div.topic-text h3 {
-    position: relative;
-    width: 100px;
-    text-align: center;
-    margin: 0;
-    padding: 20px 0 20px;
-    color: #fff;
-  }
-  body main div#topic div.topic-text h3::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -120px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #fff;
-  }
-  body main div#topic div.topic-text p {
-    padding: 0 0 20px;
-    color: #fff;
-  }
 }
 @media screen and (min-width: 768px) and (max-width: 1239px) {
-  body main {
-    /*============================
-    #topic
-    ============================*/
-  }
   body main div#menu {
     width: 100%;
     background-image: url("../photos/pc/menu-back.png");
@@ -416,30 +670,6 @@ body main {
     background-position: center;
     margin-top: -10vh;
     padding: 60px 0 0;
-  }
-  body main div#menu h2 {
-    position: relative;
-    width: 160px;
-    text-align: center;
-    margin: 0 auto 0;
-  }
-  body main div#menu h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
-  body main div#menu h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
   }
   body main div#menu div.food-menu,
   body main div#menu div.drink-menu {
@@ -508,6 +738,76 @@ body main {
     margin: 40px 0 20px;
     text-align: center;
   }
+}
+@media screen and (min-width: 0) and (max-width: 767px) {
+  body main div#menu {
+    width: 100%;
+    background-image: url("../photos/sp/menu-back.png");
+    background-size: cover;
+    background-position: top;
+    margin-top: -10vh;
+    padding: 60px 0 0;
+  }
+  body main div#menu div.food-menu,
+  body main div#menu div.drink-menu {
+    width: 100%;
+    margin: 0 auto;
+  }
+  body main div#menu div.food-menu h3,
+  body main div#menu div.drink-menu h3 {
+    width: 100px;
+    display: inline-block;
+    position: relative;
+    margin: 20px 80px;
+  }
+  body main div#menu div.food-menu div.food-container,
+  body main div#menu div.food-menu div.drink-container,
+  body main div#menu div.drink-menu div.food-container,
+  body main div#menu div.drink-menu div.drink-container {
+    width: 65%;
+    margin: 0 auto;
+  }
+  body main div#menu div.food-menu div.food-container div.swiper-container,
+  body main div#menu div.food-menu div.drink-container div.swiper-container,
+  body main div#menu div.drink-menu div.food-container div.swiper-container,
+  body main div#menu div.drink-menu div.drink-container div.swiper-container {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper,
+  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper,
+  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper,
+  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper {
+    width: auto;
+    left: 0;
+    /*============================
+    #food-slider-inner
+    ============================*/
+  }
+  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide,
+  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide,
+  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide,
+  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide {
+    width: 200px;
+  }
+  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide img,
+  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide img,
+  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide img,
+  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide img {
+    width: 100%;
+    display: block;
+  }
+  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide h4,
+  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide h4,
+  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide h4,
+  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide h4 {
+    width: 100%;
+    margin: 40px 0 20px;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1240px) {
   body main div#topic {
     display: flex;
     flex-wrap: wrap;
@@ -524,28 +824,93 @@ body main {
     margin-bottom: 20px;
   }
   body main div#topic .topic-h2 h2 {
-    position: relative;
-    width: 200px;
-    text-align: center;
-    margin: 0 auto 0;
     color: #fff;
   }
   body main div#topic .topic-h2 h2::before {
+    background-color: #fff;
+  }
+  body main div#topic .topic-h2 h2::after {
+    background-color: #fff;
+  }
+  body main div#topic div.topic-container {
+    width: 360px;
+  }
+  body main div#topic div.topic-container div.swiper-container {
+    position: relative;
+    width: 360px;
+    padding: 0 50px 0 50px;
+    overflow: hidden;
+  }
+  body main div#topic div.topic-container div.swiper-container div.swiper-wrapper {
+    width: 280px;
+    margin: 0 auto;
+  }
+  body main div#topic div.topic-container div.swiper-container div.swiper-wrapper div.swiper-slide {
+    width: 100%;
+  }
+  body main div#topic div.topic-container div.swiper-container div.swiper-wrapper div.swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+  body main div#topic div.topic-container div.swiper-container div.swiper-button-prev {
+    position: absolute;
+    left: 0;
+    --swiper-navigation-color: #fff;
+  }
+  body main div#topic div.topic-container div.swiper-container div.swiper-button-next {
+    position: absolute;
+    right: 0;
+    --swiper-navigation-color: #fff;
+  }
+  body main div#topic div.topic-text {
+    width: 280px;
+    margin-left: 50px;
+  }
+  body main div#topic div.topic-text h3 {
+    position: relative;
+    width: 100px;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0 20px;
+    color: #fff;
+  }
+  body main div#topic div.topic-text h3::after {
     position: absolute;
     top: calc(50% - 2px);
-    left: 200px;
+    right: -120px;
     content: "";
     width: 100px;
     height: 2px;
     background-color: #fff;
   }
+  body main div#topic div.topic-text p {
+    padding: 0 0 20px;
+    color: #fff;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1239px) {
+  body main div#topic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-image: url("../photos/pc/topic-back.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 60px calc((100% - 1000px) / 2) 60px;
+  }
+  body main div#topic .topic-h2 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  body main div#topic .topic-h2 h2 {
+    color: #fff;
+  }
+  body main div#topic .topic-h2 h2::before {
+    background-color: #fff;
+  }
   body main div#topic .topic-h2 h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: 200px;
-    content: "";
-    width: 100px;
-    height: 2px;
     background-color: #fff;
   }
   body main div#topic div.topic-container {
@@ -606,107 +971,7 @@ body main {
   }
 }
 @media screen and (min-width: 0) and (max-width: 767px) {
-  body main {
-    /*============================
-    #topic
-    ============================*/
-  }
-  body main div#menu {
-    width: 100%;
-    background-image: url("../photos/sp/menu-back.png");
-    background-size: cover;
-    background-position: top;
-    margin-top: -10vh;
-    padding: 60px 0 0;
-  }
-  body main div#menu h2 {
-    position: relative;
-    width: 160px;
-    text-align: center;
-    margin: 0 auto 0;
-  }
-  body main div#menu h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
-  body main div#menu h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
-  body main div#menu div.food-menu,
-  body main div#menu div.drink-menu {
-    width: 100%;
-    margin: 0 auto;
-  }
-  body main div#menu div.food-menu h3,
-  body main div#menu div.drink-menu h3 {
-    width: 100px;
-    display: inline-block;
-    position: relative;
-    margin: 40px 80px 20px;
-  }
-  body main div#menu div.food-menu div.food-container,
-  body main div#menu div.food-menu div.drink-container,
-  body main div#menu div.drink-menu div.food-container,
-  body main div#menu div.drink-menu div.drink-container {
-    width: 65%;
-    margin: 0 auto;
-  }
-  body main div#menu div.food-menu div.food-container div.swiper-container,
-  body main div#menu div.food-menu div.drink-container div.swiper-container,
-  body main div#menu div.drink-menu div.food-container div.swiper-container,
-  body main div#menu div.drink-menu div.drink-container div.swiper-container {
-    height: auto;
-    width: 100%;
-    overflow: hidden;
-  }
-  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper,
-  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper,
-  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper,
-  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper {
-    width: auto;
-    left: 0;
-    /*============================
-    #food-slider-inner
-    ============================*/
-  }
-  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide,
-  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide,
-  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide,
-  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide {
-    width: 200px;
-  }
-  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide img,
-  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide img,
-  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide img,
-  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide img {
-    width: 100%;
-    display: block;
-  }
-  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide h4,
-  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide h4,
-  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide h4,
-  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide h4 {
-    width: 100%;
-    margin: 40px 0 20px;
-    text-align: center;
-  }
   body main div#topic {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
     background-image: url("../photos/pc/topic-back.jpg");
     background-size: cover;
     background-position: center;
@@ -714,31 +979,14 @@ body main {
   }
   body main div#topic .topic-h2 {
     width: 100%;
-    margin-bottom: 20px;
   }
   body main div#topic .topic-h2 h2 {
-    position: relative;
-    width: 200px;
-    text-align: center;
-    margin: 0 auto 0;
     color: #fff;
   }
   body main div#topic .topic-h2 h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: 200px;
-    content: "";
-    width: 100px;
-    height: 2px;
     background-color: #fff;
   }
   body main div#topic .topic-h2 h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: 200px;
-    content: "";
-    width: 100px;
-    height: 2px;
     background-color: #fff;
   }
   body main div#topic div.topic-container {
@@ -775,6 +1023,7 @@ body main {
   }
   body main div#topic div.topic-text {
     width: 70%;
+    margin: auto;
   }
   body main div#topic div.topic-text h3 {
     position: relative;
@@ -795,32 +1044,6 @@ body main {
     margin: 0 auto;
     padding: 40px 0 60px;
   }
-  body main div#news h2 {
-    position: relative;
-    width: 200px;
-    text-align: center;
-    margin: 0 auto 40px;
-    padding: 0;
-    color: #000;
-  }
-  body main div#news h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
-  body main div#news h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
   body main div#news div {
     width: 100%;
   }
@@ -858,35 +1081,9 @@ body main {
     margin: 0 auto;
     padding: 40px 0 60px;
   }
-  body main div#news h2 {
-    position: relative;
-    width: 200px;
-    text-align: center;
-    margin: 0 auto 40px;
-    padding: 0;
-    color: #000;
-  }
-  body main div#news h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
-  body main div#news h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
   body main div#news div {
     width: 700px;
-    margin: 0 auto;
+    margin: 20px auto 0;
   }
   body main div#news div article {
     display: flex;
@@ -921,32 +1118,6 @@ body main {
     width: 100%;
     margin: 0 auto;
     padding: 40px 0 60px;
-  }
-  body main div#news h2 {
-    position: relative;
-    width: 150px;
-    text-align: center;
-    margin: 0 auto 40px;
-    padding: 0;
-    color: #000;
-  }
-  body main div#news h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -60px;
-    content: "";
-    width: 60px;
-    height: 2px;
-    background-color: #000;
-  }
-  body main div#news h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -60px;
-    content: "";
-    width: 60px;
-    height: 2px;
-    background-color: #000;
   }
   body main div#news div {
     width: 80%;
@@ -967,12 +1138,11 @@ body main {
   }
   body main div#news div article time {
     width: 100%;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
   }
   body main div#news div article h3 {
     width: 100%;
-    font-size: 20px;
     text-align: center;
   }
   body main div#news div article a {
@@ -993,29 +1163,12 @@ body main {
     padding: 40px calc((100% - 800px) / 2) 60px;
   }
   body main div#contact h2 {
-    position: relative;
-    width: 340px;
     color: #fff;
-    text-align: center;
-    padding: 0;
-    margin: 0 auto;
   }
   body main div#contact h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
     background-color: #fff;
   }
   body main div#contact h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
     background-color: #fff;
   }
   body main div#contact form label p {
@@ -1108,29 +1261,12 @@ body main {
     padding: 40px calc((100% - 800px) / 2) 60px;
   }
   body main div#contact h2 {
-    position: relative;
-    width: 340px;
     color: #fff;
-    text-align: center;
-    padding: 0;
-    margin: 0 auto;
   }
   body main div#contact h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
     background-color: #fff;
   }
   body main div#contact h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
     background-color: #fff;
   }
   body main div#contact form label p {
@@ -1218,39 +1354,27 @@ body main {
 @media screen and (min-width: 0) and (max-width: 767px) {
   body main div#contact {
     width: 100%;
-    height: 1020px;
+    height: auto;
     background-color: #382819;
     padding: 40px calc((100% - 800px) / 2) 60px;
   }
   body main div#contact h2 {
-    position: relative;
-    width: 340px;
     color: #fff;
-    text-align: center;
-    padding: 0;
-    margin: 0 auto;
   }
   body main div#contact h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
     background-color: #fff;
   }
   body main div#contact h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -100px;
-    content: "";
-    width: 100px;
-    height: 2px;
     background-color: #fff;
+  }
+  body main div#contact form {
+    width: 80%;
+    min-width: 280px;
+    max-width: 400px;
+    margin: 0 auto;
   }
   body main div#contact form label p {
     width: 100%;
-    font-size: 20px;
     padding: 20px 0;
     text-align: center;
     color: #fff;
@@ -1259,18 +1383,17 @@ body main {
   body main div#contact form label input[type=email],
   body main div#contact form label input[type=tel] {
     display: block;
-    width: 400px;
+    width: 100%;
     height: 40px;
     background-color: #fff;
     margin: 0 auto;
   }
   body main div#contact form div.date {
-    width: 400px;
+    width: 100%;
     margin: 0 auto;
   }
   body main div#contact form div.date p {
     width: 100%;
-    font-size: 20px;
     padding: 20px 0;
     text-align: center;
     color: #fff;
@@ -1289,7 +1412,7 @@ body main {
     margin-left: 3%;
   }
   body main div#contact form div.human {
-    width: 400px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -1297,7 +1420,6 @@ body main {
   }
   body main div#contact form div.human p.text {
     width: 100%;
-    font-size: 20px;
     padding: 20px 0;
     text-align: center;
     color: #fff;
@@ -1335,30 +1457,6 @@ body main {
     width: 100%;
     padding: 40px calc((100% - 1000px) / 2) 60px;
   }
-  body main div#map h2 {
-    position: relative;
-    width: 150px;
-    text-align: center;
-    margin: 0 auto 20px;
-  }
-  body main div#map h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -90px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
-  body main div#map h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -90px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
   body main div#map div.map {
     width: 1000px;
     height: 378px;
@@ -1392,30 +1490,6 @@ body main {
     width: 100%;
     padding: 40px calc((100% - 1000px) / 2) 60px;
   }
-  body main div#map h2 {
-    position: relative;
-    width: 150px;
-    text-align: center;
-    margin: 0 auto 20px;
-  }
-  body main div#map h2::before {
-    position: absolute;
-    top: calc(50% - 2px);
-    left: -90px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
-  body main div#map h2::after {
-    position: absolute;
-    top: calc(50% - 2px);
-    right: -90px;
-    content: "";
-    width: 100px;
-    height: 2px;
-    background-color: #000;
-  }
   body main div#map div.map {
     width: 1000px;
     height: 378px;
@@ -1443,6 +1517,42 @@ body main {
   }
   body main div#map div.overview dl dd {
     margin-left: 30px;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 767px) {
+  body main div#map {
+    width: 100%;
+    padding: 40px 0 60px;
+  }
+  body main div#map div.map {
+    width: 100%;
+    aspect-ratio: 320/256;
+    margin: 0 auto 0;
+  }
+  body main div#map div.map iframe {
+    width: 100%;
+    height: 100%;
+  }
+  body main div#map div.overview {
+    width: 100%;
+  }
+  body main div#map div.overview dl {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    height: 75px;
+    border-bottom: solid 1px black;
+  }
+  body main div#map div.overview dl dt {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+  body main div#map div.overview dl dd {
+    margin-left: 20px;
+    font-size: 14px;
   }
 }
 body footer {

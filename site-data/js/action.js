@@ -1,3 +1,22 @@
+$(function () {
+    //SP版メニューバーの挙動
+    $(window).on('load', function () {
+        $('#menubar').on('click', function () {
+            $(this).children().toggleClass('active');
+            $('#header-menu').toggleClass('active-menu');
+        });
+    });
+    //一定量スクロールしたらメニューバーの色を変更
+
+    $(window).on('scroll', function () {
+        var nowPosition = $(window).scrollTop();
+        if (nowPosition >= 80) {
+            $('#menubar span').addClass('color');
+        } else {
+            $('#menubar span').removeClass('color');
+        }
+    })
+})
 const topslider = new Swiper('.top', {
     centeredSlides: true,
     loop: true,
@@ -55,7 +74,7 @@ const foodmenu = new Swiper('.foodmenu', {
             slidesPerView: 4,
         },
     },
-    
+
 });
 const drinkmenu = new Swiper('.drinkmenu', {
     centeredSlides: true,
@@ -80,7 +99,7 @@ const drinkmenu = new Swiper('.drinkmenu', {
             slidesPerView: 4,
         },
     },
-    
+
 });
 
 const topicmenu = new Swiper('.topicmenu', {
@@ -97,4 +116,3 @@ const topicmenu = new Swiper('.topicmenu', {
         prevEl: '.topic-button-prev',
     },
 });
-
