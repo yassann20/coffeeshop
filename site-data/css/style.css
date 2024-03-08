@@ -174,8 +174,19 @@ body header {
   body header div.swiper-container div.swiper-wrapper div.swiper-slide.scale {
     transform: scale(1.1);
   }
-  body header div.swiper-container div.swiper-wrapper div.swiper-slide img {
+  body header div.swiper-container div.swiper-wrapper div.swiper-slide div.img {
+    position: relative;
     width: 100%;
+    aspect-ratio: 650/366;
+    overflow: hidden;
+  }
+  body header div.swiper-container div.swiper-wrapper div.swiper-slide div.img img {
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: translateY(-50%);
   }
   body header div.swiper-container div.swiper-wrapper div.swiper-slide-active {
     opacity: 1;
@@ -443,34 +454,47 @@ body main {
   ============================*/
 }
 @media screen and (min-width: 1240px) {
-  body main div.blog-content {
+  body main div.blog-outer {
+    margin-top: -200px;
+  }
+  body main div.blog-outer div.circle {
+    position: relative;
     width: 100%;
-    background-image: url("../photos/pc/menu-back.png");
+    aspect-ratio: 1280/100;
+    background-image: url("../photos/pc/circle.png");
+    background-size: cover;
+  }
+  body main div.blog-outer div.blog-content {
+    position: relative;
+    width: 100%;
+    background-image: url("../photos/pc/menu-back.jpg");
+    background-size: 100% auto;
+    background-repeat: initial;
     padding: 20px calc((100% - 850px) / 2) 40px;
   }
-  body main div.blog-content div.blog-header {
+  body main div.blog-outer div.blog-content div.blog-header {
     width: 100%;
     padding: 20px 0;
   }
-  body main div.blog-content div.blog-inner img {
+  body main div.blog-outer div.blog-content div.blog-inner div.img img {
     display: block;
     width: 100%;
     height: 477px;
     background-color: #fff;
     margin: 10px 0;
   }
-  body main div.blog-content div.blog-inner h2 {
+  body main div.blog-outer div.blog-content div.blog-inner h2 {
     padding: 10px 0;
     text-align: center;
   }
-  body main div.blog-content div.blog-inner p {
+  body main div.blog-outer div.blog-content div.blog-inner p {
     padding: 10px 0;
   }
-  body main div.blog-content div.blog-inner h3 {
+  body main div.blog-outer div.blog-content div.blog-inner h3 {
     padding: 10px 0;
     text-align: center;
   }
-  body main div.blog-content div.blog-inner h4 {
+  body main div.blog-outer div.blog-content div.blog-inner h4 {
     padding: 10px 0;
     text-align: center;
   }
@@ -485,7 +509,7 @@ body main {
     width: 100%;
     padding: 20px 0;
   }
-  body main div.blog-content div.blog-inner img {
+  body main div.blog-content div.blog-inner div.img img {
     display: block;
     width: 100%;
     height: 477px;
@@ -518,7 +542,7 @@ body main {
     width: 100%;
     padding: 20px 0;
   }
-  body main div.blog-content div.blog-inner img {
+  body main div.blog-content div.blog-inner div.img img {
     display: block;
     width: 100%;
     height: 477px;
@@ -588,12 +612,20 @@ body main {
 }
 @media screen and (min-width: 1240px) {
   body main div#menu {
+    position: relative;
     width: 100%;
     background-image: url("../photos/pc/menu-back.png");
     background-size: cover;
     background-position: top;
-    margin-top: -10vh;
     padding: 60px 0 0;
+  }
+  body main div#menu::before {
+    position: absolute;
+    top: -64px;
+    left: 0;
+    content: url(../photos/pc/circle.png);
+    width: 100%;
+    height: 64px;
   }
   body main div#menu div.food-menu,
   body main div#menu div.drink-menu {
@@ -635,7 +667,6 @@ body main {
   body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper,
   body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper {
     width: auto;
-    left: -130px;
     /*============================
     #food-slider-inner
     ============================*/
@@ -646,12 +677,25 @@ body main {
   body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide {
     width: 200px;
   }
-  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide img,
-  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide img,
-  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide img,
-  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide img {
-    width: 100%;
+  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide div.img,
+  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide div.img,
+  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide div.img,
+  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide div.img {
+    position: relative;
+    width: 200px;
+    aspect-ratio: 200/200;
+    overflow: hidden;
+  }
+  body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide div.img img,
+  body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide div.img img,
+  body main div#menu div.drink-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide div.img img,
+  body main div#menu div.drink-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide div.img img {
+    position: absolute;
+    top: 50%;
     display: block;
+    width: 100%;
+    height: auto;
+    transform: translateY(-50%);
   }
   body main div#menu div.food-menu div.food-container div.swiper-container div.swiper-wrapper div.swiper-slide h4,
   body main div#menu div.food-menu div.drink-container div.swiper-container div.swiper-wrapper div.swiper-slide h4,
@@ -832,41 +876,67 @@ body main {
   body main div#topic .topic-h2 h2::after {
     background-color: #fff;
   }
-  body main div#topic div.topic-container {
+  body main div#topic div.topic-img-container {
     width: 360px;
   }
-  body main div#topic div.topic-container div.swiper-container {
+  body main div#topic div.topic-img-container div.swiper-container {
     position: relative;
     width: 360px;
     padding: 0 50px 0 50px;
     overflow: hidden;
   }
-  body main div#topic div.topic-container div.swiper-container div.swiper-wrapper {
+  body main div#topic div.topic-img-container div.swiper-container div.swiper-wrapper {
     width: 280px;
     margin: 0 auto;
   }
-  body main div#topic div.topic-container div.swiper-container div.swiper-wrapper div.swiper-slide {
+  body main div#topic div.topic-img-container div.swiper-container div.swiper-wrapper div.swiper-slide {
     width: 100%;
   }
-  body main div#topic div.topic-container div.swiper-container div.swiper-wrapper div.swiper-slide img {
+  body main div#topic div.topic-img-container div.swiper-container div.swiper-wrapper div.swiper-slide div.img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 100/100;
+  }
+  body main div#topic div.topic-img-container div.swiper-container div.swiper-wrapper div.swiper-slide div.img img {
+    position: absolute;
+    top: 50%;
     display: block;
     width: 100%;
+    height: auto;
+    transform: translateY(-50%);
   }
-  body main div#topic div.topic-container div.swiper-container div.swiper-button-prev {
+  body main div#topic div.topic-img-container div.swiper-container div.swiper-button-prev {
     position: absolute;
+    width: 50px;
+    height: 50px;
+    top: calc(50% - 25px);
     left: 0;
     --swiper-navigation-color: #fff;
+    z-index: 100;
   }
-  body main div#topic div.topic-container div.swiper-container div.swiper-button-next {
+  body main div#topic div.topic-img-container div.swiper-container div.swiper-button-next {
     position: absolute;
+    width: 50px;
+    height: 50px;
+    top: calc(50% - 25px);
     right: 0;
     --swiper-navigation-color: #fff;
   }
-  body main div#topic div.topic-text {
+  body main div#topic div.topic-text-container {
     width: 280px;
+    height: 250px;
     margin-left: 50px;
+    overflow: hidden;
   }
-  body main div#topic div.topic-text h3 {
+  body main div#topic div.topic-text-container div.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  body main div#topic div.topic-text-container div.swiper-container div.swiper-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  body main div#topic div.topic-text-container div.swiper-container div.swiper-wrapper h3 {
     position: relative;
     width: 100px;
     text-align: center;
@@ -874,7 +944,7 @@ body main {
     padding: 20px 0 20px;
     color: #fff;
   }
-  body main div#topic div.topic-text h3::after {
+  body main div#topic div.topic-text-container div.swiper-container div.swiper-wrapper h3::after {
     position: absolute;
     top: calc(50% - 2px);
     right: -120px;
@@ -883,7 +953,7 @@ body main {
     height: 2px;
     background-color: #fff;
   }
-  body main div#topic div.topic-text p {
+  body main div#topic div.topic-text-container div.swiper-container div.swiper-wrapper p {
     padding: 0 0 20px;
     color: #fff;
   }

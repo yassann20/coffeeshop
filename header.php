@@ -18,21 +18,21 @@
         <div class="swiper-container top">
             <!--ここはトップスライダー-->
             <div class="swiper-wrapper">
+                <!---トップスライダーはカスタム投稿で画像、枚数を制御-->
+                <?php
+                $slides = new WP_Query(array(
+                    'post_type' => 'slide',
+                    'posts_per_page' => -1,
+                ));
+                while($slides->have_posts()) : $slides->the_post();
+                ?>
                 <div class="swiper-slide">
-                    <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/topsample.jpg" alt="">
+                    <div class="img">
+                    <?php the_post_thumbnail(); ?>
+            </div>
                 </div>
-                <div class="swiper-slide">
-                    <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/topsample.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/topsample.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/topsample.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/topsample.jpg" alt="">
-                </div>
+                <?php endwhile;
+                wp_reset_postdata(); ?>
             </div>
             <!-- ページネーションがいるときか下記を追記 -->
             <div class="swiper-pagination"></div>

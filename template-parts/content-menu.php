@@ -4,56 +4,30 @@
                 <h3>Food</h3>
                 <div class="food-container">
                     <div class="swiper-container foodmenu">
-                        <!--ここはトップスライダー-->
+                        <!--ここはフードメニュー-->
                         <div class="swiper-wrapper">
+
+                        <!---カスタム投稿(フードメニューを取得し表示する)-->
+                            <?php 
+                            $slides = new WP_Query(array(
+                                'post_type' => 'food-slide',
+                                'posts_per_page' => -1,
+                            )) ;
+                            while($slides->have_posts()) : $slides->the_post();
+                            ?>
+
                             <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
+                                <div class="img">
+                            <?php the_post_thumbnail(); ?>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
+                            <h4><?php the_title(); ?></h4>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
+
+                            <?php endwhile;
+                            wp_reset_postdata();
+                            ?>
+                        <!--カスタム投稿(フードメニュー)ここまで-->
+
                         </div>
                     </div>
                 </div>
@@ -63,56 +37,28 @@
 
                 <div class="drink-container">
                     <div class="swiper-container drinkmenu">
-                        <!--ここはトップスライダー-->
+                        <!--ここはドリンクメニュー-->
                         <div class="swiper-wrapper">
+                            <!---カスタム投稿(フードメニューを取得し表示する)-->
+                            <?php 
+                            $slides = new WP_Query(array(
+                                'post_type' => 'drink-slide',
+                                'posts_per_page' => -1,
+                            )) ;
+                            while($slides->have_posts()) : $slides->the_post();
+                            ?>
+
                             <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
+                                <div class="img">
+                            <?php the_post_thumbnail(); ?>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
+                            <h4><?php the_title(); ?></h4>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="<?php echo get_template_directory_uri(); ?>/site-data/photos/pc/food1.jpg" alt="">
-                                <h4>タイトル</h4>
-                            </div>
+
+                            <?php endwhile;
+                            wp_reset_postdata();
+                            ?>
+                        <!--カスタム投稿(フードメニュー)ここまで-->
                         </div>
                     </div>
                 </div>

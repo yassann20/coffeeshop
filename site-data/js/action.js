@@ -102,7 +102,19 @@ const drinkmenu = new Swiper('.drinkmenu', {
 
 });
 
-const topicmenu = new Swiper('.topicmenu', {
+const topictext = new Swiper('.topictext', {
+    direction: 'vertical',
+    centeredSlides: true,
+    loop: true,
+    speed: 500,
+    slidesPerView: 1,
+    spaceBetween: 100,
+    autoplay: {
+        delay: 3000,
+    },
+});
+
+const topicimg = new Swiper('.topicimg', {
     centeredSlides: true,
     loop: true,
     speed: 500,
@@ -112,7 +124,19 @@ const topicmenu = new Swiper('.topicmenu', {
         delay: 3000,
     },
     navigation: {
-        nextEl: '.topic-button-next',
-        prevEl: '.topic-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
 });
+
+//topicimg上にあるボタンで二つのスライダーを動かす。
+document.querySelector('.swiper-button-next').addEventListener('click', function(){
+    topictext.slideNext(); // topictextはSwiperのインスタンスを指します
+});
+document.querySelector('.swiper-button-prev').addEventListener('click', function(){
+    topictext.slidePrev();
+});
+
+//topicimgとtopictextを連動させて動かす
+topicimg.controller.control = [topictext];
+topictext.controller.control = [topicimg];
