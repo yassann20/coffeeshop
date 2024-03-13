@@ -21,8 +21,6 @@ const topslider = new Swiper('.top', {
     centeredSlides: true,
     loop: true,
     speed: 500,
-    slidesPerView: 1,
-    spaceBetween: 200,
     autoplay: {
         delay: 3000,
     },
@@ -34,11 +32,9 @@ const topslider = new Swiper('.top', {
 
         0: {
             slidesPerView: 1,
-            spaceBetween: 40, // ブレークポイントでスペースを調整
         },
         768: {
             slidesPerView: 1,
-            spaceBetween: 60, // ブレークポイントでスペースを調整
         },
         1240: {
             slidesPerView: 3,
