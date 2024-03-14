@@ -48,7 +48,6 @@ const topslider = new Swiper('.top', {
 });
 
 const foodmenu = new Swiper('.foodmenu', {
-    centeredSlides: true,
     loop: true,
     speed: 500,
     slidesPerView: 4,
@@ -73,7 +72,6 @@ const foodmenu = new Swiper('.foodmenu', {
 
 });
 const drinkmenu = new Swiper('.drinkmenu', {
-    centeredSlides: true,
     loop: true,
     speed: 500,
     slidesPerView: 4,
@@ -100,7 +98,6 @@ const drinkmenu = new Swiper('.drinkmenu', {
 
 const topictext = new Swiper('.topictext', {
     direction: 'vertical',
-    centeredSlides: true,
     loop: true,
     speed: 500,
     slidesPerView: 1,
