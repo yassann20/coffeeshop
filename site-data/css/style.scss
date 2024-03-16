@@ -2281,7 +2281,25 @@ body {
         @include tab {
             div#footer-menu {
                 right: 0;
-                width: 180px;
+                width: 100px;
+                margin-left: calc(100% - 180px);
+                color: #fff;
+
+                nav {
+                    ul {
+                        li {
+                            padding: 10px 0;
+
+                            a {}
+                        }
+                    }
+                }
+            }
+        }
+        @include sp {
+            div#footer-menu {
+                right: 0;
+                width: 100px;
                 margin-left: calc(100% - 180px);
                 color: #fff;
 

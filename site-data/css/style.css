@@ -1961,7 +1961,18 @@ body footer p {
 @media screen and (min-width: 768px) and (max-width: 1239px) {
   body footer div#footer-menu {
     right: 0;
-    width: 180px;
+    width: 100px;
+    margin-left: calc(100% - 180px);
+    color: #fff;
+  }
+  body footer div#footer-menu nav ul li {
+    padding: 10px 0;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 767px) {
+  body footer div#footer-menu {
+    right: 0;
+    width: 100px;
     margin-left: calc(100% - 180px);
     color: #fff;
   }
