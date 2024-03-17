@@ -26,8 +26,8 @@ if (have_posts()) :
                 </div>
             </div>
             <div class="navigation">
-                <div class="nav-previous"><?php previous_posts_link( '前のページ' ); ?></div>
-                <div class="nav-next"><?php next_posts_link( '次のページ' ); ?></div>
+                <div class="nav-previous"><?php previous_post_link( '%link', '<< 前の記事へ' ); ?></div>
+                <div class="nav-next"><?php next_post_link( '%link', '次の記事へ >>' ); ?></div>
             </div>
         </div>
 <?php

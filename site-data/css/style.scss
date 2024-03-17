@@ -640,6 +640,18 @@ body {
                             text-align: center;
                         }
                     }
+                    div.navigation{
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        justify-content: space-between;
+                        div.nav-previous{
+                            display: inline-block;
+                        }
+                        div.nav-next{
+                            display: inline-block;
+                        }
+                    }
                 }
             }
 
@@ -699,6 +711,18 @@ body {
                             text-align: center;
                         }
                     }
+                    div.navigation{
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        justify-content: space-between;
+                        div.nav-previous{
+                            display: inline-block;
+                        }
+                        div.nav-next{
+                            display: inline-block;
+                        }
+                    }
                 }
             }
 
@@ -756,6 +780,18 @@ body {
                         h4 {
                             padding: 10px 0;
                             text-align: center;
+                        }
+                    }
+                    div.navigation{
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        justify-content: space-between;
+                        div.nav-previous{
+                            display: inline-block;
+                        }
+                        div.nav-next{
+                            display: inline-block;
                         }
                     }
                 }
