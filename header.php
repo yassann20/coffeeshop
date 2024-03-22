@@ -57,6 +57,7 @@
                 <li><a href="#news">news</a></li>
                 <li><a href="#contact">contact</a></li>
                 <li><a href="#map">map</a></li>
+                <li><a href="<?php echo get_post_type_archive_link('post'); ?>">archive</a></li>
             </ul>
         </nav>
     </div>
