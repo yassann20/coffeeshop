@@ -4,11 +4,14 @@
         <div id="footer-menu">
             <nav>
                 <ul>
-                    <li><a href="#top">top</a></li>
-                    <li><a href="#topic">topic</a></li>
-                    <li><a href="#news">news</a></li>
-                    <li><a href="#contact">contact</a></li>
-                    <li><a href="#map">map</a></li>
+                <?php
+wp_nav_menu(array(
+    'theme_location' => 'footer-menu',
+    'container' => 'nav',
+    'container_class' => 'footer-navigation',
+    'menu_class' => 'menu',
+));
+?>
                 </ul>
             </nav>
         </div>

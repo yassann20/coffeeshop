@@ -1,5 +1,16 @@
 <?php
 
+//メニュー機能の追加
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'primary-menu' => __( 'Primary Menu' ),
+            'footer-menu' => __( 'Footer Menu' ),
+        )
+    );
+}
+add_action( 'init', 'register_my_menus' );
+
 function webst8_setup()
 {
     //ここに関数の中身を記述します。
@@ -8,6 +19,8 @@ function webst8_setup()
 }
 add_action('after_setup_theme', 'webst8_setup');
 //最後に作成したafter_setup_themeアクションフック※に登録します。
+
+//archiveページをnewsという階層名で表示させる
 function post_has_archive($args, $post_type)
 {
 
@@ -19,21 +32,13 @@ function post_has_archive($args, $post_type)
 }
 add_filter('register_post_type_args', 'post_has_archive', 10, 2);
 
-function my_session_start()
-{
-    if (session_status() !== PHP_SESSION_ACTIVE) {
-        session_start();
-    }
-    $_SESSION['foo'] = 'var';
-}
-add_action('init', 'my_session_start');
-
 
 //前の記事・次の記事のリンクにclassを付与する
 function add_prev_post_link_class($output) {
   return str_replace('<a href=', '<a id="Prev-page" href=', $output); //前の記事リンク
 }
 add_filter( 'previous_post_link', 'add_prev_post_link_class' );
+
 function add_next_post_link_class($output) {
   return str_replace('<a href=', '<a id="Next-page" href=', $output); //次の記事リンク
 }

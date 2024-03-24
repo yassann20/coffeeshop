@@ -819,13 +819,10 @@ body {
                         padding: 30px 0;
 
                         article {
+                            position: relative;
                             width: 300px;
                             margin: 20px;
                             background-color: #f3f3f3;
-
-                            a {
-                                position: relative;
-                                width: 100%;
 
                                 div.category {
                                     position: absolute;
@@ -837,6 +834,7 @@ body {
                                     p {
                                         padding: 5px;
                                         background-color: #033304;
+                                        color: #f3f3f3;
                                     }
                                 }
 
@@ -844,12 +842,13 @@ body {
                                     position: relative;
                                     width: 300px;
                                     height: 170px;
-
+                                    overflow: hidden;
                                     img {
                                         position: absolute;
                                         top: 50%;
                                         display: block;
                                         width: 100%;
+                                        height: auto;
                                         transform: translateY(-50%);
                                     }
                                 }
@@ -864,10 +863,10 @@ body {
                                 }
 
                                 time {
-                                    padding: 0 30px 30px;
+                                    display: inline-block;
+                                    padding: 0 30px 20px;
                                 }
                             }
-                        }
                     }
                 }
             }
@@ -891,13 +890,10 @@ body {
                         padding: 30px 0;
 
                         article {
+                            position: relative;
                             width: 300px;
                             margin: 20px;
                             background-color: #f3f3f3;
-
-                            a {
-                                position: relative;
-                                width: 100%;
 
                                 div.category {
                                     position: absolute;
@@ -909,6 +905,7 @@ body {
                                     p {
                                         padding: 5px;
                                         background-color: #033304;
+                                        color: #f3f3f3;
                                     }
                                 }
 
@@ -916,12 +913,13 @@ body {
                                     position: relative;
                                     width: 300px;
                                     height: 170px;
-
+                                    overflow: hidden;
                                     img {
                                         position: absolute;
                                         top: 50%;
                                         display: block;
                                         width: 100%;
+                                        height: auto;
                                         transform: translateY(-50%);
                                     }
                                 }
@@ -936,10 +934,10 @@ body {
                                 }
 
                                 time {
-                                    padding: 0 30px 30px;
+                                    display: inline-block;
+                                    padding: 0 30px 20px;
                                 }
                             }
-                        }
                     }
                 }
             }
@@ -962,13 +960,10 @@ body {
                         padding: 30px 0;
 
                         article {
+                            position: relative;
                             width: 300px;
                             margin: 20px;
                             background-color: #f3f3f3;
-
-                            a {
-                                position: relative;
-                                width: 100%;
 
                                 div.category {
                                     position: absolute;
@@ -980,6 +975,7 @@ body {
                                     p {
                                         padding: 5px;
                                         background-color: #033304;
+                                        color: #f3f3f3;
                                     }
                                 }
 
@@ -987,12 +983,14 @@ body {
                                     position: relative;
                                     width: 300px;
                                     height: 170px;
+                                    overflow: hidden;
 
                                     img {
                                         position: absolute;
                                         top: 50%;
                                         display: block;
                                         width: 100%;
+                                        height: auto;
                                         transform: translateY(-50%);
                                     }
                                 }
@@ -1007,10 +1005,10 @@ body {
                                 }
 
                                 time {
-                                    padding: 0 30px 30px;
+                                    display: inline-block;
+                                    padding: 0 30px 20px;
                                 }
                             }
-                        }
                     }
                 }
             }

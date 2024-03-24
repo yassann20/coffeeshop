@@ -13,6 +13,17 @@ if (have_posts()) :
         <div class="blog-content">
             <div class="blog-header">
                 <p><?php echo __('更新日'); ?><time datetime="<?php echo get_the_date('Y/m/d'); ?>"><?php echo get_the_date(); ?></time></p>
+                <!--カテゴリのパーマリンクを設定-->
+                <?php
+                // 投稿に関連付けられたカテゴリーを取得
+                $categories = get_the_category();
+                if (!empty($categories)) {
+                    // 最初のカテゴリーのみ表示
+                    $category = $categories[0];
+                    // カテゴリーパーマリンクを表示
+                    echo '<p><a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></p>';
+                }
+                ?>
             </div>
             <div class="blog-inner">
                 <?php if (has_post_thumbnail()) : ?>

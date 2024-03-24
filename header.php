@@ -52,12 +52,14 @@
     <div id="header-menu">
         <nav>
             <ul>
-                <li><a href="#top">top</a></li>
-                <li><a href="#topic">topic</a></li>
-                <li><a href="#news">news</a></li>
-                <li><a href="#contact">contact</a></li>
-                <li><a href="#map">map</a></li>
-                <li><a href="<?php echo get_post_type_archive_link('post'); ?>">archive</a></li>
+            <?php
+wp_nav_menu(array(
+    'theme_location' => 'primary-menu',
+    'container' => 'nav',
+    'container_class' => 'main-navigation',
+    'menu_class' => 'menu',
+));
+?>
             </ul>
         </nav>
     </div>

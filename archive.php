@@ -10,7 +10,7 @@
                 <?php
                 $args = array(
                     'post_type' => 'post',
-                    'posts\per_page' => -1,
+                    'posts_per_page' => -1,
                 );
                 $query = new WP_query($args);
 
@@ -19,20 +19,27 @@
                         $query -> the_post(); 
                 ?>
                 <article>
-                    <a href="<?php the_permalink(); ?>">
                         <div class="category">
-                            <p><?php echo get_the_category()[0]->name; ?></p>
+                        <?php
+                            // 投稿に関連付けられたカテゴリーを取得
+                            $categories = get_the_category();
+                            if (!empty($categories)) {
+                                // 最初のカテゴリーのみ表示
+                                $category = $categories[0];
+                                // カテゴリーパーマリンクを表示
+                                echo '<p><a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></p>';
+                            }
+                            ?>
                         </div>
                         <div class="img">
                             <?php if(has_post_thumbnail()) : ?>
                                 <?php the_post_thumbnail(); ?>
                             <?php else: ?>
-                                <img src="../photos/pc/topsample.jpg" alt="">
+                                <img src="<?php echo get_template_directory_uri(); ?>/photos/pc/topsample.jpg" alt="">
                             <?php endif; ?>
                         </div>
                         <h3 class="title"><?php the_title(); ?></h3>
                         <time datetime="<?php echo get_the_date('Y/m/d'); ?>"><?php echo get_the_date(); ?></time>
-                    </a>
                 </article>
                 <?php
                 endwhile;
