@@ -6,17 +6,24 @@ $(function () {
             $('#header-menu').toggleClass('active-menu');
         });
     });
-    //一定量スクロールしたらメニューバーの色を変更
-
+    //スクロールされた場合にSPとTAB以上に別々の動作をさせる
     $(window).on('scroll', function () {
-        var nowPosition = $(window).scrollTop();
+        let nowPosition = $(window).scrollTop();
+        let width = $(window).innerWidth();
+        //一定量スクロールしたらメニューバーの色を変更
         if (nowPosition >= 80) {
             $('#menubar span').addClass('color');
         } else {
             $('#menubar span').removeClass('color');
         }
-    })
-})
+        //タブレットサイズ以上のヘッダーメニューでは一定量スクロールされたらメニューの文字色を変更する
+        if( nowPosition >= 90 && width >= 768){
+             $('#header-menu a').addClass('font-color');
+        } else {
+            $('#header-menu a').removeClass('font-color');
+        }
+    });
+});
 const topslider = new Swiper('.top', {
     centeredSlides: true,
     autoHeight: true,
@@ -126,10 +133,10 @@ const topicimg = new Swiper('.topicimg', {
 });
 
 //topicimg上にあるボタンで二つのスライダーを動かす。
-document.querySelector('.swiper-button-next').addEventListener('click', function(){
+document.querySelector('.swiper-button-next').addEventListener('click', function () {
     topictext.slideNext(); // topictextはSwiperのインスタンスを指します
 });
-document.querySelector('.swiper-button-prev').addEventListener('click', function(){
+document.querySelector('.swiper-button-prev').addEventListener('click', function () {
     topictext.slidePrev();
 });
 

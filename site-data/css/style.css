@@ -22,6 +22,9 @@ body div.img {
 body a {
   text-decoration: none;
 }
+body h1, body h2, body h3, body h4, body p, body a {
+  font-family: serif;
+}
 @media screen and (min-width: 1240px) {
   body h2 {
     font-size: 40px;
@@ -418,7 +421,10 @@ body .color {
   body div#header-menu nav ul li a {
     font-size: 24px;
     color: white;
-    font-family: serif;
+    transition: all 0.3s;
+  }
+  body div#header-menu nav ul li a.font-color {
+    color: black !important;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1239px) {
@@ -447,6 +453,10 @@ body .color {
   }
   body div#header-menu nav ul li a {
     color: white;
+    transition: all 0.3s;
+  }
+  body div#header-menu nav ul li a.font-color {
+    color: black !important;
   }
 }
 @media screen and (min-width: 0) and (max-width: 767px) {
