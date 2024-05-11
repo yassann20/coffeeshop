@@ -397,6 +397,7 @@ body .color {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 100;
   }
   body div#header-menu nav {
     width: 100%;
@@ -426,6 +427,7 @@ body .color {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 100;
   }
   body div#header-menu nav {
     width: 100%;
