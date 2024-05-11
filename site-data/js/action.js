@@ -9,7 +9,8 @@ $(function () {
     //スクロールされた場合にSPとTAB以上に別々の動作をさせる
     $(window).on('scroll', function () {
         let nowPosition = $(window).scrollTop();
-        let width = $(window).innerWidth();
+        let width = $(window).innerWidth(); //ブラウザの横幅を取得
+        let headerHeight = $("header").innerHeight() - ( $(window).innerHeight() / 10 );//ヘッダーの高さとメインコンテンツのネガティブマージンを差し引いたものを取得
         //一定量スクロールしたらメニューバーの色を変更
         if (nowPosition >= 80) {
             $('#menubar span').addClass('color');
@@ -17,7 +18,7 @@ $(function () {
             $('#menubar span').removeClass('color');
         }
         //タブレットサイズ以上のヘッダーメニューでは一定量スクロールされたらメニューの文字色を変更する
-        if( nowPosition >= 90 && width >= 768){
+        if( nowPosition >= headerHeight && width >= 768){
              $('#header-menu a').addClass('font-color');
         } else {
             $('#header-menu a').removeClass('font-color');
