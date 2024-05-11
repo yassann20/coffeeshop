@@ -1,7 +1,13 @@
 @charset "UTF-8";
+/*============================
+   #追加のデフォルトスタイル
+   ============================*/
 body {
   padding: 0;
   margin: 0;
+  /*============================
+  header
+  ============================*/
   /*============================
   #menu-bar pc、tabでは非表示
   ============================*/
@@ -9,10 +15,14 @@ body {
   #header-menu
   ============================*/
 }
+body div.img {
+  position: relative;
+  overflow: hidden;
+}
+body a {
+  text-decoration: none;
+}
 @media screen and (min-width: 1240px) {
-  body a {
-    text-decoration: none;
-  }
   body h2 {
     font-size: 40px;
   }
@@ -48,9 +58,6 @@ body {
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1239px) {
-  body a {
-    text-decoration: none;
-  }
   body h2 {
     font-size: 30px;
   }
@@ -86,9 +93,6 @@ body {
   }
 }
 @media screen and (min-width: 0) and (max-width: 767px) {
-  body a {
-    text-decoration: none;
-  }
   body h2 {
     font-size: 20px;
   }
@@ -129,6 +133,7 @@ body {
 }
 body header {
   width: 100%;
+  overflow: hidden;
   background-position: center;
   background-size: cover;
   /*============================
@@ -138,21 +143,18 @@ body header {
 @media screen and (min-width: 1240px) {
   body header {
     width: 100%;
-    aspect-ratio: 16/9;
     background-image: url("../photos/pc/top-back-pc.jpg");
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1239px) {
   body header {
     width: 100%;
-    aspect-ratio: 16/9;
     background-image: url("../photos/pc/top-back-pc.jpg");
   }
 }
 @media screen and (min-width: 0) and (max-width: 767px) {
   body header {
     width: 100%;
-    aspect-ratio: 16/13;
     background-image: url("../photos/sp/top-back.jpg");
   }
 }
@@ -164,27 +166,41 @@ body header {
   }
   body header div.swiper-container {
     position: relative;
-    top: 40%;
-    left: -25%;
-    width: 150%;
-    transform: translateY(-50%);
+    width: 170%;
+    left: -35%;
+    padding: 135px 0 calc(60px + 20vh);
+    margin-bottom: 0;
     /*============================
     #top-slider-inner
     ============================*/
   }
+  body header div.swiper-container div.swiper-wrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    left: 0;
+    margin: 0;
+  }
   body header div.swiper-container div.swiper-wrapper div.swiper-slide {
-    width: 51%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     aspect-ratio: 16/9;
     transition: transform 0.3s ease;
+    margin: 0 auto;
+    padding: 0;
   }
   body header div.swiper-container div.swiper-wrapper div.swiper-slide.scale {
-    transform: scale(1.1);
+    transform: scale(1);
   }
   body header div.swiper-container div.swiper-wrapper div.swiper-slide div.img {
     position: relative;
+    left: 50%;
     width: 100%;
     aspect-ratio: 16/9;
     overflow: hidden;
+    margin: 0;
+    transform: translateX(-50%);
   }
   body header div.swiper-container div.swiper-wrapper div.swiper-slide div.img img {
     position: absolute;
@@ -197,19 +213,21 @@ body header {
   body header div.swiper-container div.swiper-wrapper div.swiper-slide-active {
     opacity: 1;
     z-index: 1;
-    transform: scale(1.5);
+    transform: scale(1.2);
     /* スライドの大きさ調整 */
   }
   body header div.swiper-container div.swiper-button-prev {
-    position: relative;
-    top: -20vh;
-    left: 27%;
+    position: absolute;
+    top: 0;
+    margin-top: calc(12.2666666667% - 20px);
+    left: calc(30% + 12px);
     --swiper-navigation-color: #fff;
   }
   body header div.swiper-container div.swiper-button-next {
-    position: relative;
-    top: -21vh;
-    right: -72%;
+    position: absolute;
+    top: 0;
+    margin-top: calc(12.2666666667% - 20px);
+    right: calc(30% + 12px);
     --swiper-navigation-color: #fff;
   }
 }
@@ -221,17 +239,22 @@ body header {
   }
   body header div.swiper-container {
     position: relative;
-    top: 15%;
-    width: 500px;
+    width: 600px;
     overflow: hidden;
-    padding: 0 40px;
+    padding: 70px 50px calc(60px + 10vh);
     margin: 0 auto;
     /*============================
     #top-slider-inner
     ============================*/
   }
+  body header div.swiper-container div.swiper-wrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    left: 0;
+    margin: 0;
+  }
   body header div.swiper-container div.swiper-wrapper div.swiper-slide {
-    width: 500px;
+    width: 100%;
     aspect-ratio: 16/9;
     transition: transform 0.3s ease;
     margin: 0 auto;
@@ -255,13 +278,15 @@ body header {
   }
   body header div.swiper-container div.swiper-button-prev {
     position: absolute;
-    top: 50%;
+    top: 0;
+    margin-top: calc(32% - 20px);
     left: 0;
     --swiper-navigation-color: #fff;
   }
   body header div.swiper-container div.swiper-button-next {
     position: absolute;
-    top: 50%;
+    top: 0;
+    margin-top: calc(32% - 20px);
     right: 0;
     --swiper-navigation-color: #fff;
   }
@@ -274,11 +299,10 @@ body header {
   }
   body header div.swiper-container {
     position: relative;
-    top: 40%;
+    top: 0;
     width: 300px;
-    transform: translateY(-50%);
     overflow: hidden;
-    padding: 0;
+    padding: 40px 0 calc(60px + 8vh);
     margin: 0 auto;
     /*============================
     #top-slider-inner
@@ -382,14 +406,18 @@ body .color {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-end;
-    padding: 35px 70px;
+    padding: 0 70px;
   }
   body div#header-menu nav ul li {
     list-style: none;
-    padding: 0 20px;
+    height: 100px;
+    line-height: 50px;
+    padding: 25px 20px;
   }
   body div#header-menu nav ul li a {
+    font-size: 24px;
     color: white;
+    font-family: serif;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1239px) {
@@ -407,11 +435,13 @@ body .color {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-end;
-    padding: 35px 70px;
+    padding: 0 70px;
   }
   body div#header-menu nav ul li {
+    height: 70px;
+    line-height: 40px;
     list-style: none;
-    padding: 0 20px;
+    padding: 15px 20px;
   }
   body div#header-menu nav ul li a {
     color: white;
@@ -480,17 +510,17 @@ body main div.main-outer {
 }
 @media screen and (min-width: 1240px) {
   body main div.main-outer {
-    margin-top: -200px;
+    margin-top: -15vh;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1239px) {
   body main div.main-outer {
-    margin-top: -90px;
+    margin-top: -10vh;
   }
 }
 @media screen and (min-width: 0) and (max-width: 767px) {
   body main div.main-outer {
-    margin-top: -60px;
+    margin-top: -8vh;
   }
 }
 body main div.main-outer div.circle {
@@ -520,7 +550,7 @@ body main div.main-outer div.circle {
     overflow: hidden;
     margin: 10px 0;
   }
-  body main div.main-outer div.blog-content div.blog-inner div.img img {
+  body main div.main-outer div.blog-content div.blog-inner div.img img.thumbnail {
     position: absolute;
     top: 50%;
     left: 0;
@@ -711,10 +741,10 @@ body main div.main-outer div.circle {
   body main div.main-outer div.archive-content div#archive-inner article div.img {
     position: relative;
     width: 300px;
-    height: 170px;
+    aspect-ratio: 16/9;
     overflow: hidden;
   }
-  body main div.main-outer div.archive-content div#archive-inner article div.img img {
+  body main div.main-outer div.archive-content div#archive-inner article div.img img.thumbnail {
     position: absolute;
     top: 50%;
     display: block;

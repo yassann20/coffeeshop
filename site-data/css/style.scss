@@ -28,15 +28,21 @@ $sp: 0;
 @include tab {}
 
 @include sp {}
-
+ /*============================
+    #追加のデフォルトスタイル
+    ============================*/
 body {
     padding: 0;
     margin: 0;
-
-    @include pc {
-        a {
+    div.img{
+        position: relative;
+        overflow: hidden;
+    }
+     a {
             text-decoration: none;
         }
+    @include pc {
+       
 
         h2 {
             font-size: 40px;
@@ -78,10 +84,6 @@ body {
     }
 
     @include tab {
-        a {
-            text-decoration: none;
-        }
-
         h2 {
             font-size: 30px;
         }
@@ -122,10 +124,6 @@ body {
     }
 
     @include sp {
-        a {
-            text-decoration: none;
-        }
-
         h2 {
             font-size: 20px;
         }
@@ -169,25 +167,24 @@ body {
             }
         }
     }
-
+     /*============================
+    header
+    ============================*/
     header {
         width: 100%;
-
+        overflow: hidden;
         @include pc {
             width: 100%;
-            aspect-ratio: 16/9;
             background-image: url("../photos/pc/top-back-pc.jpg");
         }
 
         @include tab {
             width: 100%;
-            aspect-ratio: 16/9;
             background-image: url("../photos/pc/top-back-pc.jpg");
         }
 
         @include sp {
             width: 100%;
-            aspect-ratio: 16/13;
             background-image: url("../photos/sp/top-back.jpg");
         }
 
@@ -205,31 +202,39 @@ body {
     ============================*/
             div.swiper-container {
                 position: relative;
-                top: 40%;
-                left: -25%;
-                width: 150%;
-                transform: translateY(-50%);
-
+                width: 170%;
+                left: -35%;
+                padding: 135px 0 calc( 60px + 20vh );//main-outer側のmargin-topマイナス分を加算
+                margin-bottom: 0;
                 /*============================
     #top-slider-inner
     ============================*/
                 div.swiper-wrapper {
-
+                width: 100%;
+                aspect-ratio: 16/9;
+                left: 0;
+                margin: 0;
                     div.swiper-slide {
-                        width: 51%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
                         aspect-ratio: 16/9;
                         transition: transform 0.3s ease;
-
+                        margin: 0 auto;
+                        padding: 0;
                         &.scale {
-                            transform: scale(1.1);
+                            transform: scale(1.0);
                         }
 
                         div.img {
                             position: relative;
+                            left: 50%;
                             width: 100%;
                             aspect-ratio: 16/9;
                             overflow: hidden;
-
+                            margin: 0;
+                            transform: translateX(-50%);
                             img {
                                 position: absolute;
                                 top: 50%;
@@ -244,23 +249,25 @@ body {
                     div.swiper-slide-active {
                         opacity: 1;
                         z-index: 1;
-                        transform: scale(1.5);
+                        transform: scale(1.2);
                         /* スライドの大きさ調整 */
                     }
                 }
 
                 //ナビゲーションボタン
                 div.swiper-button-prev {
-                    position: relative;
-                    top: -20vh;
-                    left: 27%;
+                    position: absolute;
+                    top: 0;
+                    margin-top: calc(92% / 3 * 0.8 / 2 - 20px);
+                    left: calc( 30% + 12px );
                     --swiper-navigation-color: #fff;
                 }
 
                 div.swiper-button-next {
-                    position: relative;
-                    top: -21vh;
-                    right: -72%;
+                     position: absolute;
+                    top: 0;
+                     margin-top: calc(92% / 3 * 0.8 / 2 - 20px);
+                    right: calc( 30% + 12px );
                     --swiper-navigation-color: #fff;
                 }
             }
@@ -273,19 +280,22 @@ body {
     ============================*/
             div.swiper-container {
                 position: relative;
-                top: 15%;
-                width: 500px;
+                width: 600px;
                 overflow: hidden;
-                padding: 0 40px;
+                padding: 70px 50px calc( 60px + 10vh );//main-outer側のmargin-topマイナス分を加算
                 margin: 0 auto;
 
                 /*============================
     #top-slider-inner
     ============================*/
                 div.swiper-wrapper {
+                    width: 100%;
+                aspect-ratio: 16/9;
+                left: 0;
+                margin: 0;
 
                     div.swiper-slide {
-                        width: 500px;
+                        width: 100%;
                         aspect-ratio: 16/9;
                         transition: transform 0.3s ease;
                         margin: 0 auto;
@@ -311,17 +321,19 @@ body {
                     }
                 }
 
-                //ナビゲーションボタン
+                 //ナビゲーションボタン
                 div.swiper-button-prev {
                     position: absolute;
-                    top: 50%;
+                    top: 0;
+                    margin-top: calc( 80% * 0.8 / 2 - 20px);
                     left: 0;
                     --swiper-navigation-color: #fff;
                 }
 
                 div.swiper-button-next {
-                    position: absolute;
-                    top: 50%;
+                     position: absolute;
+                    top: 0;
+                    margin-top: calc( 80% * 0.8 / 2 - 20px);
                     right: 0;
                     --swiper-navigation-color: #fff;
                 }
@@ -335,11 +347,10 @@ body {
     ============================*/
             div.swiper-container {
                 position: relative;
-                top: 40%;
+                top: 0;
                 width: 300px;
-                transform: translateY(-50%);
                 overflow: hidden;
-                padding: 0;
+                padding: 40px 0 calc( 60px + 8vh );//main-outer側のmargin-topマイナス分を加算
                 margin: 0 auto;
 
                 /*============================
@@ -469,14 +480,18 @@ body {
                     display: flex;
                     flex-wrap: nowrap;
                     justify-content: flex-end;
-                    padding: 35px 70px;
+                    padding: 0 70px;
 
                     li {
                         list-style: none;
-                        padding: 0 20px;
+                        height: 100px;
+                        line-height: 50px;
+                        padding: 25px 20px;
 
                         a {
+                            font-size: 24px;
                             color: #ffff;
+                            font-family: serif;
                         }
                     }
                 }
@@ -499,11 +514,13 @@ body {
                     display: flex;
                     flex-wrap: nowrap;
                     justify-content: flex-end;
-                    padding: 35px 70px;
+                    padding: 0 70px;
 
                     li {
+                        height: 70px;
+                        line-height: 40px;
                         list-style: none;
-                        padding: 0 20px;
+                        padding: 15px 20px;
 
                         a {
                             color: #ffff;
@@ -560,18 +577,15 @@ body {
 
     main {
         div.main-outer {
-            @include pc {
-                margin-top: -200px;
+            @include pc{
+                margin-top: -15vh;
             }
-
-            @include tab {
-                margin-top: -90px;
+            @include tab{
+                margin-top: -10vh;
             }
-
-            @include sp {
-                margin-top: -60px;
+            @include sp{
+                margin-top: -8vh;   
             }
-
             div.circle {
                 position: relative;
                 width: 100%;
@@ -609,7 +623,7 @@ body {
                             overflow: hidden;
                             margin: 10px 0;
 
-                            img {
+                            img.thumbnail {
                                 position: absolute;
                                 top: 50%;
                                 left: 0;
@@ -841,9 +855,9 @@ body {
                                 div.img {
                                     position: relative;
                                     width: 300px;
-                                    height: 170px;
+                                    aspect-ratio: 16/9;
                                     overflow: hidden;
-                                    img {
+                                    img.thumbnail {
                                         position: absolute;
                                         top: 50%;
                                         display: block;

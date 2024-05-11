@@ -19,6 +19,7 @@ $(function () {
 })
 const topslider = new Swiper('.top', {
     centeredSlides: true,
+    autoHeight: true,
     loop: true,
     speed: 500,
     autoplay: {
@@ -32,13 +33,15 @@ const topslider = new Swiper('.top', {
 
         0: {
             slidesPerView: 1,
+            spaceBetween: 50,
         },
         768: {
             slidesPerView: 1,
+            spaceBetween: 50,
         },
         1240: {
             slidesPerView: 3,
-            spaceBetween: 450, // ブレークポイントでスペースを調整
+            spaceBetween: 200,
         },
     },
     scrollbar: {

@@ -14,48 +14,48 @@
                 );
                 $query = new WP_query($args);
 
-                if( $query -> have_posts()) : 
-                    while( $query -> have_posts()) :
-                        $query -> the_post(); 
+                if ($query->have_posts()) :
+                    while ($query->have_posts()) :
+                        $query->the_post();
                 ?>
-                <article>
-                        <div class="category">
-                        <?php
-                            // 投稿に関連付けられたカテゴリーを取得
-                            $categories = get_the_category();
-                            if (!empty($categories)) {
-                                // 最初のカテゴリーのみ表示
-                                $category = $categories[0];
-                                // カテゴリーパーマリンクを表示
-                                echo '<p><a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></p>';
-                            }
-                            ?>
-                        </div>
-                        <div class="img">
-                            <?php if(has_post_thumbnail()) : ?>
-                                <?php the_post_thumbnail(); ?>
-                            <?php else: ?>
-                                <img src="<?php echo get_template_directory_uri(); ?>/photos/pc/topsample.jpg" alt="">
-                            <?php endif; ?>
-                        </div>
-                        <h3 class="title"><?php the_title(); ?></h3>
-                        <time datetime="<?php echo get_the_date('Y/m/d'); ?>"><?php echo get_the_date(); ?></time>
-                </article>
+                        <article>
+                            <div class="category">
+                                <?php
+                                // 投稿に関連付けられたカテゴリーを取得
+                                $categories = get_the_category();
+                                if (!empty($categories)) {
+                                    // 最初のカテゴリーのみ表示
+                                    $category = $categories[0];
+                                    // カテゴリーパーマリンクを表示
+                                    echo '<p><a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></p>';
+                                }
+                                ?>
+                            </div>
+                            <div class="img">
+                                <?php if (has_post_thumbnail()) : ?>
+                                    <?php the_post_thumbnail('', array('class' => 'thumbnail')); ?>
+                                <?php else : ?>
+                                    <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/site-data/photos/noimg.png" alt="">
+                                <?php endif; ?>
+                            </div>
+                            <h3 class="title"><?php the_title(); ?></h3>
+                            <time datetime="<?php echo get_the_date('Y/m/d'); ?>"><?php echo get_the_date(); ?></time>
+                        </article>
                 <?php
-                endwhile;
-            else: 
-                echo __('投稿が見つかりませんでした。');
-            endif; 
+                    endwhile;
+                else :
+                    echo __('投稿が見つかりませんでした。');
+                endif;
                 ?>
             </div>
         </div>
 
         <!--お問い合わせページコンテンツ-->
         <?php get_template_part('template-parts/content', 'contact'); ?>
-        
+
         <!--店マップ・情報コンテンツ-->
         <?php get_template_part('template-parts/content', 'map'); ?>
-            </div>
+    </div>
 </main>
 
 <?php get_footer(); ?>
